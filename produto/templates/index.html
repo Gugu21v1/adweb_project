@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% block title %} Produtos {% endblock %} 
+{% block content %}
+
+
+<div class="shop">
+  <div class="sidebar">
+    <ul>
+      <li class="product-category active">Todos</li>
+      <li class="product-category">Tecnologia</li>
+      <li class="product-category">Alimento</li>
+      <li class="product-category">Casa</li>
+      <li class="product-category">Lazer</li>
+      <li class="product-category">Jardinagem</li>
+      <li class="product-category">Construção</li>
+      <li class="product-category">Outros</li>
+    </ul>
+  </div>
+
+  <div class="products">
+    {% for product in object_list %}
+    <a href="{% url 'product:product_page' product.id %}">
+      <div class="product-card">
+        <img src="{{ product.thumb.url }}" alt="Imagem produto" />
+        <div class="product-text">
+          <div class="product-category">{{ product.category.capitalize }}</div>
+          <div class="product-price">R$ {{ product.price }}</div>
+          <div class="product-name">{{ product.name }}</div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

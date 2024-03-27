@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block title %} {{ object }} {% endblock %} 
+
+{% block content %}
+
+<section class="product-page">
+  <img src="{{ object.thumb.url }}" alt="Imagem do produto" />
+  <hr class="d-none">
+  <div class="product-page-infos">
+    <span class="bold">Categoria: </span>
+    <p class="product-page-desc">{{ object.category.capitalize }}</p>
+    <span class="bold">Nome: </span>
+    <div class="product-page-name">{{ object.name }}</div>
+    <span class="bold">Descrição: </span>
+    <p class="product-page-desc">{{ object.desc }}</p>
+    <p class="product-price">R$ {{ object.price }}</p>
+    
+    <a href="#" class="buy mt-3">Comprar</a>
+  </div>
+</section>
+
+{% endblock %}
